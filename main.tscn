@@ -1,0 +1,169 @@
+[gd_scene load_steps=16 format=3 uid="uid://lg27kft3y8nh"]
+
+[ext_resource type="Texture2D" uid="uid://7mnh4mvv28xq" path="res://Background/01/Background_00.png" id="1_bqvey"]
+[ext_resource type="Texture2D" uid="uid://dkb3sarqa0jmd" path="res://Background/01/Background_01.png" id="2_i5r3y"]
+[ext_resource type="Texture2D" uid="uid://cm0numtsdkf04" path="res://Background/01/Background_02.png" id="3_v4kru"]
+[ext_resource type="Texture2D" uid="uid://cdefawvwkr8qx" path="res://Background/01/Background_03.png" id="4_orhjy"]
+[ext_resource type="Texture2D" uid="uid://bnvg2rk3qfrit" path="res://Background/01/Background_04.png" id="5_ttujp"]
+[ext_resource type="Texture2D" uid="uid://hvdmvbyvyx27" path="res://Background/01/Background_05.png" id="6_oyu28"]
+[ext_resource type="Texture2D" uid="uid://du370nkgu6jxd" path="res://Sprites/UI/window_1.png" id="7_6viue"]
+[ext_resource type="FontFile" uid="uid://b2gw3xi71o2ym" path="res://Fonts/BlackPearl/BlackPearl.fnt" id="8_ntvlf"]
+[ext_resource type="Texture2D" uid="uid://dw3g6h4sdska" path="res://Sprites/UI/Buttons/play.png" id="9_5b6a0"]
+[ext_resource type="Script" path="res://Scripts/play_button.gd" id="10_l25i7"]
+[ext_resource type="Texture2D" uid="uid://bmcmd6tc0lndb" path="res://Sprites/UI/Title.png" id="11_tblew"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_357gg"]
+font = ExtResource("8_ntvlf")
+font_size = 20
+font_color = Color(0.140447, 0.140447, 0.140447, 1)
+shadow_color = Color(0.650128, 0.650128, 0.650128, 0.788235)
+
+[sub_resource type="Animation" id="Animation_vx0t4"]
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.16667, 2, 2.9667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0698132, 0.0, -0.0698132]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.53333, 2.86667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.35, 0.35), Vector2(0.3, 0.3), Vector2(0.35, 0.35)]
+}
+
+[sub_resource type="Animation" id="Animation_yckeh"]
+resource_name = "Wiggle"
+length = 3.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.933333, 2, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0698132, 0.0349066, -0.0698132]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.35, 0.35)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fdey"]
+_data = {
+"RESET": SubResource("Animation_vx0t4"),
+"Wiggle": SubResource("Animation_yckeh")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="Background00" type="Sprite2D" parent="Background"]
+z_index = -25
+texture = ExtResource("1_bqvey")
+
+[node name="Background01" type="Sprite2D" parent="Background"]
+z_index = -20
+texture = ExtResource("2_i5r3y")
+
+[node name="Background02" type="Sprite2D" parent="Background"]
+z_index = -15
+texture = ExtResource("3_v4kru")
+
+[node name="Background03" type="Sprite2D" parent="Background"]
+z_index = -10
+position = Vector2(0, 38)
+texture = ExtResource("4_orhjy")
+
+[node name="Background04" type="Sprite2D" parent="Background"]
+position = Vector2(0, 201)
+texture = ExtResource("5_ttujp")
+
+[node name="Background05" type="Sprite2D" parent="Background"]
+z_index = 10
+position = Vector2(0, 237)
+texture = ExtResource("6_oyu28")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(382, 113)
+
+[node name="Window1" type="Sprite2D" parent="Node2D"]
+position = Vector2(135, 160)
+scale = Vector2(1, 0.68)
+texture = ExtResource("7_6viue")
+
+[node name="Label" type="Label" parent="Node2D"]
+visible = false
+offset_left = -65.0
+offset_top = -2.0
+offset_right = 335.0
+offset_bottom = 386.0
+scale = Vector2(1, 1.04)
+text = "Arrr, ye brave souls!  Open the sunken 
+treasure chest  to claim yer prize. 
+
+Ye can snag up to 12 tickets, but beware
+fortune be a fickle mistress. 
+There be a secret to boostin' yer chances
+can ye uncover it? 
+
+When ye've won yer tickets,  and
+reckon ye've got enough, 
+take a screenshot and bring it to 
+Teen Revival
+to earn extra tickets for the 
+grand drawing. "
+label_settings = SubResource("LabelSettings_357gg")
+
+[node name="PlayButton" type="TextureButton" parent="Node2D"]
+offset_left = -26.0
+offset_top = -2.00001
+offset_right = 596.0
+offset_bottom = 651.0
+scale = Vector2(0.35, 0.35)
+pivot_offset = Vector2(79, 83)
+texture_normal = ExtResource("9_5b6a0")
+stretch_mode = 0
+script = ExtResource("10_l25i7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/PlayButton"]
+libraries = {
+"": SubResource("AnimationLibrary_7fdey")
+}
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(531, 77)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_tblew")
+
+[connection signal="pressed" from="Node2D/PlayButton" to="Node2D/PlayButton" method="_on_pressed"]

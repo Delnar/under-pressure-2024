@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqsimc8mnjj58"]
+
+[ext_resource type="Script" path="res://Scripts/game_manager.gd" id="1_itdwc"]
+[ext_resource type="Script" path="res://Scripts/enemy_manager.gd" id="2_r7uys"]
+[ext_resource type="Texture2D" uid="uid://7mnh4mvv28xq" path="res://Background/01/Background_00.png" id="3_0pubq"]
+[ext_resource type="Texture2D" uid="uid://dkb3sarqa0jmd" path="res://Background/01/Background_01.png" id="4_w3ccx"]
+[ext_resource type="Texture2D" uid="uid://cm0numtsdkf04" path="res://Background/01/Background_02.png" id="5_qqvd5"]
+[ext_resource type="Texture2D" uid="uid://cdefawvwkr8qx" path="res://Background/01/Background_03.png" id="6_jyhey"]
+[ext_resource type="Texture2D" uid="uid://bnvg2rk3qfrit" path="res://Background/01/Background_04.png" id="7_qxsqv"]
+[ext_resource type="Texture2D" uid="uid://hvdmvbyvyx27" path="res://Background/01/Background_05.png" id="8_fy1fo"]
+[ext_resource type="PackedScene" uid="uid://dn5ihfifor6iv" path="res://Scenes/treasurer_box.tscn" id="9_gc564"]
+
+[node name="Main" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_itdwc")
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("2_r7uys")
+
+[node name="Timer" type="Timer" parent="EnemyManager"]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="Background00" type="Sprite2D" parent="Background"]
+z_index = -25
+texture = ExtResource("3_0pubq")
+
+[node name="Background01" type="Sprite2D" parent="Background"]
+z_index = -20
+texture = ExtResource("4_w3ccx")
+
+[node name="Background02" type="Sprite2D" parent="Background"]
+z_index = -15
+texture = ExtResource("5_qqvd5")
+
+[node name="Background03" type="Sprite2D" parent="Background"]
+z_index = -10
+position = Vector2(0, 38)
+texture = ExtResource("6_jyhey")
+
+[node name="Background04" type="Sprite2D" parent="Background"]
+position = Vector2(0, 201)
+texture = ExtResource("7_qxsqv")
+
+[node name="Background05" type="Sprite2D" parent="Background"]
+z_index = 10
+position = Vector2(0, 237)
+texture = ExtResource("8_fy1fo")
+
+[node name="Treasurer Box" parent="." instance=ExtResource("9_gc564")]
+position = Vector2(513, 410)
+
+[connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="_on_timer_timeout"]

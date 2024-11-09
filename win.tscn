@@ -1,0 +1,190 @@
+[gd_scene load_steps=20 format=3 uid="uid://cavvbeistafb3"]
+
+[ext_resource type="Script" path="res://Scripts/win_manager.gd" id="1_p5co3"]
+[ext_resource type="Texture2D" uid="uid://7mnh4mvv28xq" path="res://Background/01/Background_00.png" id="1_xrv0i"]
+[ext_resource type="Texture2D" uid="uid://dkb3sarqa0jmd" path="res://Background/01/Background_01.png" id="2_5dx4x"]
+[ext_resource type="Texture2D" uid="uid://cm0numtsdkf04" path="res://Background/01/Background_02.png" id="3_d35q1"]
+[ext_resource type="Texture2D" uid="uid://cdefawvwkr8qx" path="res://Background/01/Background_03.png" id="4_rps6l"]
+[ext_resource type="Texture2D" uid="uid://bnvg2rk3qfrit" path="res://Background/01/Background_04.png" id="5_cmt31"]
+[ext_resource type="Texture2D" uid="uid://hvdmvbyvyx27" path="res://Background/01/Background_05.png" id="6_1ra3p"]
+[ext_resource type="Texture2D" uid="uid://du370nkgu6jxd" path="res://Sprites/UI/window_1.png" id="7_ug7wa"]
+[ext_resource type="FontFile" uid="uid://b2gw3xi71o2ym" path="res://Fonts/BlackPearl/BlackPearl.fnt" id="8_baell"]
+[ext_resource type="FontFile" uid="uid://bkcnm1504nxbe" path="res://Fonts/BlackPearlLarge/Blackpearl_Large.fnt" id="10_knehp"]
+[ext_resource type="Script" path="res://Scripts/play_button.gd" id="10_rltir"]
+[ext_resource type="Texture2D" uid="uid://ch46x8by0l4bl" path="res://Sprites/UI/Buttons/restart.png" id="11_aeulw"]
+[ext_resource type="Texture2D" uid="uid://bmcmd6tc0lndb" path="res://Sprites/UI/Title.png" id="11_obr7u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cdbvg"]
+font = ExtResource("8_baell")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_b6b7h"]
+font = ExtResource("10_knehp")
+font_size = 128
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0.784314)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ddig8"]
+font = ExtResource("8_baell")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(1, 1, 1, 0)
+
+[sub_resource type="Animation" id="Animation_vx0t4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.35, 0.35)]
+}
+
+[sub_resource type="Animation" id="Animation_yckeh"]
+resource_name = "Wiggle"
+length = 3.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.933333, 2, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0698132, 0.0349066, -0.0698132]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.35, 0.35)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7fdey"]
+_data = {
+"RESET": SubResource("Animation_vx0t4"),
+"Wiggle": SubResource("Animation_yckeh")
+}
+
+[node name="Main" type="Node2D"]
+
+[node name="WinManager" type="Node" parent="."]
+script = ExtResource("1_p5co3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="Background00" type="Sprite2D" parent="Background"]
+z_index = -25
+texture = ExtResource("1_xrv0i")
+
+[node name="Background01" type="Sprite2D" parent="Background"]
+z_index = -20
+texture = ExtResource("2_5dx4x")
+
+[node name="Background02" type="Sprite2D" parent="Background"]
+z_index = -15
+texture = ExtResource("3_d35q1")
+
+[node name="Background03" type="Sprite2D" parent="Background"]
+z_index = -10
+position = Vector2(0, 38)
+texture = ExtResource("4_rps6l")
+
+[node name="Background04" type="Sprite2D" parent="Background"]
+position = Vector2(0, 201)
+texture = ExtResource("5_cmt31")
+
+[node name="Background05" type="Sprite2D" parent="Background"]
+z_index = 10
+position = Vector2(0, 237)
+texture = ExtResource("6_1ra3p")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(382, 114)
+
+[node name="Window1" type="Sprite2D" parent="Node2D"]
+position = Vector2(135, 160)
+scale = Vector2(1, 0.68)
+texture = ExtResource("7_ug7wa")
+
+[node name="Title" type="Label" parent="Node2D"]
+offset_left = -65.0
+offset_top = -2.0
+offset_right = 335.0
+offset_bottom = 25.0
+scale = Vector2(1, 1.04)
+text = "You have won"
+label_settings = SubResource("LabelSettings_cdbvg")
+
+[node name="TicketCount" type="Label" parent="Node2D"]
+offset_left = -71.0
+offset_top = 62.0
+offset_right = 329.0
+offset_bottom = 208.0
+scale = Vector2(1, 1.04)
+text = "12"
+label_settings = SubResource("LabelSettings_b6b7h")
+horizontal_alignment = 1
+
+[node name="TicketText" type="Label" parent="Node2D"]
+offset_left = -65.0
+offset_top = 239.0
+offset_right = 335.0
+offset_bottom = 266.0
+scale = Vector2(1, 1.04)
+text = "Tickets - Code: 74XX##-TR"
+label_settings = SubResource("LabelSettings_ddig8")
+
+[node name="RestartButton" type="TextureButton" parent="Node2D"]
+offset_left = 243.0
+offset_top = 244.0
+offset_right = 401.0
+offset_bottom = 410.0
+scale = Vector2(0.35, 0.35)
+pivot_offset = Vector2(79, 83)
+texture_normal = ExtResource("11_aeulw")
+stretch_mode = 0
+script = ExtResource("10_rltir")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2D/RestartButton"]
+libraries = {
+"": SubResource("AnimationLibrary_7fdey")
+}
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(531, 77)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_obr7u")
+
+[connection signal="pressed" from="Node2D/RestartButton" to="Node2D/RestartButton" method="_on_pressed"]

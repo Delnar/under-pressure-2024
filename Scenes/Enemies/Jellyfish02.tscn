@@ -1,0 +1,116 @@
+[gd_scene load_steps=24 format=3 uid="uid://ctovqwi6rl7a4"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_grhkp"]
+[ext_resource type="Texture2D" uid="uid://blsd3u2c0yk2r" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_000.png" id="2_2x3tm"]
+[ext_resource type="Texture2D" uid="uid://bfhneqxfflmjc" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_001.png" id="3_g83eg"]
+[ext_resource type="Texture2D" uid="uid://dgjtatjwjntpp" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_002.png" id="4_jl33p"]
+[ext_resource type="Texture2D" uid="uid://crxvpylhd3qxn" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_003.png" id="5_c6jec"]
+[ext_resource type="Texture2D" uid="uid://do2mfodrshjjq" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_004.png" id="6_46vn1"]
+[ext_resource type="Texture2D" uid="uid://cggbjktto8d5y" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_005.png" id="7_fkp4w"]
+[ext_resource type="Texture2D" uid="uid://cx7ygcm28hm6b" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_006.png" id="8_4asca"]
+[ext_resource type="Texture2D" uid="uid://dpkyu1ah4v50u" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_007.png" id="9_g6ev5"]
+[ext_resource type="Texture2D" uid="uid://dfbhi0ewbfxxo" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_008.png" id="10_3jrtl"]
+[ext_resource type="Texture2D" uid="uid://biybpoy2ehdyu" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_die_2_009.png" id="11_mjm4s"]
+[ext_resource type="Texture2D" uid="uid://cenorgwql2yv1" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_000.png" id="12_d7ifm"]
+[ext_resource type="Texture2D" uid="uid://brl3r68bm17kr" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_001.png" id="13_sp71l"]
+[ext_resource type="Texture2D" uid="uid://cles6eg4a2g7e" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_002.png" id="14_45c5p"]
+[ext_resource type="Texture2D" uid="uid://ca8ew0tbodyb8" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_003.png" id="15_mp4gm"]
+[ext_resource type="Texture2D" uid="uid://ckjc5hat0qf13" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_004.png" id="16_cc4vb"]
+[ext_resource type="Texture2D" uid="uid://dlrmfe5sjsiak" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_005.png" id="17_uct2i"]
+[ext_resource type="Texture2D" uid="uid://2nfrp0e4wcf3" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_006.png" id="18_lxuk1"]
+[ext_resource type="Texture2D" uid="uid://crqe778wtw80x" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_007.png" id="19_3cvtx"]
+[ext_resource type="Texture2D" uid="uid://dhy0dr2ral2xa" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_008.png" id="20_6xrhd"]
+[ext_resource type="Texture2D" uid="uid://cxwpbuqt6tslv" path="res://Sprites/Creatures/Jellyfish_2/Jellyfish_move_2_009.png" id="21_e6ojt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evl11"]
+size = Vector2(400, 187)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubi7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2x3tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g83eg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jl33p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c6jec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_46vn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fkp4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4asca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g6ev5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3jrtl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mjm4s")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_d7ifm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sp71l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_45c5p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_mp4gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_cc4vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_uct2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_lxuk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3cvtx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6xrhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_e6ojt")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 15.0
+}]
+
+[node name="Jellyfish02" type="CharacterBody2D" groups=["Jellyfish"]]
+scale = Vector2(0.5, 0.5)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("1_grhkp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -3.5)
+shape = SubResource("RectangleShape2D_evl11")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ubi7y")
+animation = &"Move"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

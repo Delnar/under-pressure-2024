@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://lg27kft3y8nh"]
+
+[ext_resource type="Texture2D" uid="uid://7mnh4mvv28xq" path="res://Background/01/Background_00.png" id="1_bqvey"]
+[ext_resource type="Script" path="res://game_manager.gd" id="1_voftk"]
+[ext_resource type="Script" path="res://enemy_manager.gd" id="2_3j360"]
+[ext_resource type="Texture2D" uid="uid://dkb3sarqa0jmd" path="res://Background/01/Background_01.png" id="2_i5r3y"]
+[ext_resource type="Script" path="res://treasurer_box.gd" id="3_g48ym"]
+[ext_resource type="Texture2D" uid="uid://cm0numtsdkf04" path="res://Background/01/Background_02.png" id="3_v4kru"]
+[ext_resource type="Texture2D" uid="uid://cdefawvwkr8qx" path="res://Background/01/Background_03.png" id="4_orhjy"]
+[ext_resource type="Texture2D" uid="uid://cidv3ttk0613o" path="res://Sprites/Treasurer Chest/1.png" id="4_pi6e2"]
+[ext_resource type="Texture2D" uid="uid://bnvg2rk3qfrit" path="res://Background/01/Background_04.png" id="5_ttujp"]
+[ext_resource type="Texture2D" uid="uid://hvdmvbyvyx27" path="res://Background/01/Background_05.png" id="6_oyu28"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jsy3"]
+size = Vector2(191, 144)
+
+[node name="Main" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_voftk")
+
+[node name="EnemyManager" type="Node" parent="."]
+script = ExtResource("2_3j360")
+
+[node name="Timer" type="Timer" parent="EnemyManager"]
+autostart = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="Background" type="Node2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="Background00" type="Sprite2D" parent="Background"]
+z_index = -25
+texture = ExtResource("1_bqvey")
+
+[node name="Background01" type="Sprite2D" parent="Background"]
+z_index = -20
+texture = ExtResource("2_i5r3y")
+
+[node name="Background02" type="Sprite2D" parent="Background"]
+z_index = -15
+texture = ExtResource("3_v4kru")
+
+[node name="Background03" type="Sprite2D" parent="Background"]
+z_index = -10
+position = Vector2(0, 38)
+texture = ExtResource("4_orhjy")
+
+[node name="Background04" type="Sprite2D" parent="Background"]
+position = Vector2(0, 201)
+texture = ExtResource("5_ttujp")
+
+[node name="Background05" type="Sprite2D" parent="Background"]
+z_index = 10
+position = Vector2(0, 237)
+texture = ExtResource("6_oyu28")
+
+[node name="Treasurer Box" type="CharacterBody2D" parent="."]
+position = Vector2(168, 4)
+input_pickable = true
+script = ExtResource("3_g48ym")
+
+[node name="Sprite" type="Sprite2D" parent="Treasurer Box"]
+position = Vector2(314, 401)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_pi6e2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Treasurer Box"]
+position = Vector2(314.5, 398)
+shape = SubResource("RectangleShape2D_2jsy3")
+
+[connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="_on_timer_timeout"]
+[connection signal="input_event" from="Treasurer Box" to="Treasurer Box" method="_on_input_event"]

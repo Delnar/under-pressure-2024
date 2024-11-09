@@ -1,0 +1,116 @@
+[gd_scene load_steps=24 format=3 uid="uid://be1a6thvkt8iu"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_3tf7e"]
+[ext_resource type="Texture2D" uid="uid://xr4e380l40es" path="res://Sprites/Creatures/Shark_1/Shark_die_1_000.png" id="2_hgdku"]
+[ext_resource type="Texture2D" uid="uid://djosfux0xqost" path="res://Sprites/Creatures/Shark_1/Shark_die_1_001.png" id="3_ivmi7"]
+[ext_resource type="Texture2D" uid="uid://yrnfkag25auv" path="res://Sprites/Creatures/Shark_1/Shark_die_1_002.png" id="4_0rk1p"]
+[ext_resource type="Texture2D" uid="uid://g8x82i6ltnuw" path="res://Sprites/Creatures/Shark_1/Shark_die_1_003.png" id="5_kb3no"]
+[ext_resource type="Texture2D" uid="uid://cyioiciiavfd6" path="res://Sprites/Creatures/Shark_1/Shark_die_1_004.png" id="6_rer7g"]
+[ext_resource type="Texture2D" uid="uid://rt52d0dsjfho" path="res://Sprites/Creatures/Shark_1/Shark_die_1_005.png" id="7_yqefj"]
+[ext_resource type="Texture2D" uid="uid://boq0tyqrkeds7" path="res://Sprites/Creatures/Shark_1/Shark_die_1_006.png" id="8_k1awx"]
+[ext_resource type="Texture2D" uid="uid://bnu8xyl8kscso" path="res://Sprites/Creatures/Shark_1/Shark_die_1_007.png" id="9_563to"]
+[ext_resource type="Texture2D" uid="uid://bv1ugowdr217f" path="res://Sprites/Creatures/Shark_1/Shark_die_1_008.png" id="10_wuseg"]
+[ext_resource type="Texture2D" uid="uid://ihtgwge6ekc" path="res://Sprites/Creatures/Shark_1/Shark_die_1_009.png" id="11_d57g3"]
+[ext_resource type="Texture2D" uid="uid://v6yg886ci8xj" path="res://Sprites/Creatures/Shark_1/Shark_move_1_000.png" id="12_clbjx"]
+[ext_resource type="Texture2D" uid="uid://cyl7yh47ikmtt" path="res://Sprites/Creatures/Shark_1/Shark_move_1_001.png" id="13_p8vt2"]
+[ext_resource type="Texture2D" uid="uid://bofnf3cwj8h1" path="res://Sprites/Creatures/Shark_1/Shark_move_1_002.png" id="14_dp7v5"]
+[ext_resource type="Texture2D" uid="uid://bkkblxohbl2i0" path="res://Sprites/Creatures/Shark_1/Shark_move_1_003.png" id="15_25w8v"]
+[ext_resource type="Texture2D" uid="uid://b5fjf1e346sto" path="res://Sprites/Creatures/Shark_1/Shark_move_1_004.png" id="16_hx88o"]
+[ext_resource type="Texture2D" uid="uid://bux70jtgcyaeg" path="res://Sprites/Creatures/Shark_1/Shark_move_1_005.png" id="17_ixl7f"]
+[ext_resource type="Texture2D" uid="uid://bhhy54vqigvhc" path="res://Sprites/Creatures/Shark_1/Shark_move_1_006.png" id="18_288l7"]
+[ext_resource type="Texture2D" uid="uid://bgjuasqa3iapl" path="res://Sprites/Creatures/Shark_1/Shark_move_1_007.png" id="19_70cwi"]
+[ext_resource type="Texture2D" uid="uid://b5oa57m0ll677" path="res://Sprites/Creatures/Shark_1/Shark_move_1_008.png" id="20_8shun"]
+[ext_resource type="Texture2D" uid="uid://ds1t03petob0x" path="res://Sprites/Creatures/Shark_1/Shark_move_1_009.png" id="21_xmn4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evl11"]
+size = Vector2(400, 187)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubi7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hgdku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ivmi7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0rk1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kb3no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rer7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_yqefj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_k1awx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_563to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wuseg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_d57g3")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_clbjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_p8vt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_dp7v5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_25w8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_hx88o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ixl7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_288l7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_70cwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_8shun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_xmn4j")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 15.0
+}]
+
+[node name="Shark01" type="CharacterBody2D" groups=["Shark"]]
+scale = Vector2(0.5, 0.5)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("1_3tf7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -3.5)
+shape = SubResource("RectangleShape2D_evl11")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ubi7y")
+animation = &"Move"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

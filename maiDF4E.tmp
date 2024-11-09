@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://lg27kft3y8nh"]
+
+[ext_resource type="Texture2D" uid="uid://b4vkcmf8k2gni" path="res://Background/Background1024.png" id="1_52awk"]
+[ext_resource type="Script" path="res://game_manager.gd" id="1_voftk"]
+[ext_resource type="Script" path="res://treasurer_box.gd" id="3_g48ym"]
+[ext_resource type="Texture2D" uid="uid://cidv3ttk0613o" path="res://Sprites/Treasurer Chest/1.png" id="4_pi6e2"]
+[ext_resource type="PackedScene" uid="uid://blr0h6f27q88s" path="res://Scenes/Crab01.tscn" id="5_p63ke"]
+[ext_resource type="PackedScene" uid="uid://coyrsopaswa0t" path="res://Scenes/Crab02.tscn" id="6_x5udc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jsy3"]
+size = Vector2(191, 144)
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 288)
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_voftk")
+
+[node name="Background1024" type="Sprite2D" parent="."]
+position = Vector2(512, 288)
+texture = ExtResource("1_52awk")
+
+[node name="Treasurer Box" type="CharacterBody2D" parent="."]
+position = Vector2(168, 4)
+input_pickable = true
+script = ExtResource("3_g48ym")
+
+[node name="Sprite" type="Sprite2D" parent="Treasurer Box"]
+position = Vector2(314, 401)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_pi6e2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Treasurer Box"]
+position = Vector2(314.5, 398)
+shape = SubResource("RectangleShape2D_2jsy3")
+
+[node name="Crab01" parent="." instance=ExtResource("5_p63ke")]
+position = Vector2(879, 526)
+input_pickable = true
+
+[node name="Crab02" parent="." instance=ExtResource("6_x5udc")]
+position = Vector2(149, 501)
+x_direction = 1
+
+[connection signal="input_event" from="Treasurer Box" to="Treasurer Box" method="_on_input_event"]

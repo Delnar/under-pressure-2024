@@ -1,0 +1,116 @@
+[gd_scene load_steps=24 format=3 uid="uid://coyrsopaswa0t"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_emigv"]
+[ext_resource type="Texture2D" uid="uid://crhqme821bsu8" path="res://Sprites/Creatures/Crab_2/Crab_die_2_000.png" id="2_f8lnm"]
+[ext_resource type="Texture2D" uid="uid://cptpprm8sc2f1" path="res://Sprites/Creatures/Crab_2/Crab_die_2_001.png" id="3_nx1t2"]
+[ext_resource type="Texture2D" uid="uid://o6vtyj0sp14y" path="res://Sprites/Creatures/Crab_2/Crab_die_2_002.png" id="4_n8tn7"]
+[ext_resource type="Texture2D" uid="uid://bgd3gq8yotbes" path="res://Sprites/Creatures/Crab_2/Crab_die_2_003.png" id="5_xaypg"]
+[ext_resource type="Texture2D" uid="uid://dtdaky1rsdnad" path="res://Sprites/Creatures/Crab_2/Crab_die_2_004.png" id="6_de5ho"]
+[ext_resource type="Texture2D" uid="uid://sjoq3sqq3wuy" path="res://Sprites/Creatures/Crab_2/Crab_die_2_005.png" id="7_nvhvy"]
+[ext_resource type="Texture2D" uid="uid://dlqtgaptcso3t" path="res://Sprites/Creatures/Crab_2/Crab_die_2_006.png" id="8_muo47"]
+[ext_resource type="Texture2D" uid="uid://ccvcig2wfer26" path="res://Sprites/Creatures/Crab_2/Crab_die_2_007.png" id="9_vyj51"]
+[ext_resource type="Texture2D" uid="uid://b3iqw1hcah7tb" path="res://Sprites/Creatures/Crab_2/Crab_die_2_008.png" id="10_5l3vb"]
+[ext_resource type="Texture2D" uid="uid://b686rigakd1kp" path="res://Sprites/Creatures/Crab_2/Crab_die_2_009.png" id="11_e8ycw"]
+[ext_resource type="Texture2D" uid="uid://c5cl3xe8tl3fh" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_000.png" id="12_o408w"]
+[ext_resource type="Texture2D" uid="uid://cs75r548uvabf" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_001.png" id="13_wtul7"]
+[ext_resource type="Texture2D" uid="uid://cv8jeitbdo5hx" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_002.png" id="14_5mjev"]
+[ext_resource type="Texture2D" uid="uid://wdjjaryi7sq5" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_003.png" id="15_6hy3c"]
+[ext_resource type="Texture2D" uid="uid://d4jr2yfp58uup" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_004.png" id="16_t1e36"]
+[ext_resource type="Texture2D" uid="uid://dcyv2ptghx3yr" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_005.png" id="17_h03b2"]
+[ext_resource type="Texture2D" uid="uid://difa7cnl4nrkf" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_006.png" id="18_odswk"]
+[ext_resource type="Texture2D" uid="uid://dy0ro3yvbwbft" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_007.png" id="19_nh241"]
+[ext_resource type="Texture2D" uid="uid://bftrlsf0t7e4a" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_008.png" id="20_fs6ys"]
+[ext_resource type="Texture2D" uid="uid://bd60dft8t1nym" path="res://Sprites/Creatures/Crab_2/Crab_idle_2_009.png" id="21_qjkm4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evl11"]
+size = Vector2(506, 235)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubi7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f8lnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_nx1t2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_n8tn7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xaypg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_de5ho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nvhvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_muo47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vyj51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5l3vb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_e8ycw")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_o408w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wtul7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5mjev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6hy3c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_t1e36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h03b2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_odswk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_nh241")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_fs6ys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qjkm4")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 15.0
+}]
+
+[node name="Crab02" type="CharacterBody2D" groups=["Crab"]]
+scale = Vector2(0.5, 0.5)
+input_pickable = true
+motion_mode = 1
+script = ExtResource("1_emigv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(57, 20.5)
+shape = SubResource("RectangleShape2D_evl11")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ubi7y")
+animation = &"Move"
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

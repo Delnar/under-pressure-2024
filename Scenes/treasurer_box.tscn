@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://dn5ihfifor6iv"]
+
+[ext_resource type="Script" path="res://Scripts/treasurer_box.gd" id="1_dtjw5"]
+[ext_resource type="Texture2D" uid="uid://cidv3ttk0613o" path="res://Sprites/Treasurer Chest/1.png" id="2_eqfd5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jsy3"]
+size = Vector2(191, 144)
+
+[sub_resource type="Animation" id="Animation_7lnj0"]
+resource_name = "Wiggle"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 2.21914, 1, 1),
+"update": 0,
+"values": [0.0, 0.0349066, 0.0, -0.0349066]
+}
+
+[sub_resource type="Animation" id="Animation_ovp71"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r7vqe"]
+_data = {
+"RESET": SubResource("Animation_ovp71"),
+"Wiggle": SubResource("Animation_7lnj0")
+}
+
+[node name="Treasurer Box" type="CharacterBody2D"]
+z_index = 5
+input_pickable = true
+script = ExtResource("1_dtjw5")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_eqfd5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2jsy3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r7vqe")
+}
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
